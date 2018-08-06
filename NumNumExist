@@ -1,0 +1,31 @@
+/**
+ 2 3 
+ 4 6 
+ 6 9
+ */
+public class NumNumExist {
+
+    public boolean isExistInArrayArray(int[][] nums, int number) {
+        int rLen = nums.length;int cLen=nums[0].length;
+        int r = 0;
+        int c = nums[0].length - 1;
+        boolean flag = false;
+        if (nums != null && rLen> 0 && cLen > 0) {
+            while (r < rLen && c > 0) {
+                if (nums[r][c] < number) {
+                    r++;
+                } else if (nums[r][c] > number) {
+                    c--;
+                } else {
+                    return true;
+                }
+            }
+        }
+        return flag;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new NumNumExist().isExistInArrayArray(new int[][] { {2, 3}, {4, 6}, {6, 9}}, 6));
+        System.out.println(new NumNumExist().isExistInArrayArray(new int[][] { {2, 3}, {4, 6}, {6, 9}}, 7));
+    }
+}
